@@ -1,9 +1,19 @@
-development:
-  duelbelt_dev
+defaults: &defaults
+  host: localhost
+  preload_models: false
 
-testing:
-  duelbelt_test
+development:
+  <<: *defaults
+  database: duelbelt_dev
+
+test:
+  <<: *defaults
+  database: duelbelt_test
 
 production:
-  duelbelt_prod
+  host: <%= ENV["MONGOID_HOST"] %>
+  port: <%= ENV["MONGOID_PORT"] %>
+  username: <%= ENV["MONGOID_USERNAME"] %>
+  password: <%= ENV["MONGOID_PASSWORD"] %>
+  database: <%= ENV["MONGOID_DATABASE"] %>
 
