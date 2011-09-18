@@ -1,3 +1,4 @@
+# Trading card game card abstract class/collection
 class Card
   include Mongoid::Document
 
@@ -41,11 +42,11 @@ class SpellOrTrapCard < Card
 end
 
 # Spell card
-class SpellCard < SpellOrTrapCard
+class Spell < SpellOrTrapCard
 end
 
 # Trap card
-class TrapCard < SpellOrTrapCard
+class Trap < SpellOrTrapCard
 end
 
 # Monster models
@@ -60,14 +61,14 @@ class Attribute
 end
 
 # Monster card
-class MonsterCard < Card
+class Monster < Card
   field :level, :type => Integer, :default => 3
   field :attack_points, :type => Integer
   field :defense_points, :type => Integer
   field :tuner, :type => Boolean, :default => false
 
   belongs_to :attribute
-  belongs_to :monster_card_type
+  belongs_to :monster_type
   has_and_belongs_to_many :effect
 
   validates_presence_of :level
@@ -92,7 +93,7 @@ class Effect
 end
 
 # Monster card types such as Normal, Synchro, Fusion, Ritual
-class MonsterCardType
+class MonsterType
   include Mongoid::Document
 
   field :name, :type => String
