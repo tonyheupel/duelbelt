@@ -26,13 +26,13 @@ class Monster < Card
   belongs_to :monster_type
   has_and_belongs_to_many :effect
 
-  validates_presence_of :level
-  validates_presence_of :attack_points
-  validates_presence_of :defense_points
-
+  [:attack_points, :defense_points].each do |field|
+    validates_presence_of     field
+    validates_numericality_of field, :greater_than_or_equal_to => 0    
+  end
+  
+  validates_presence_of     :level
   validates_numericality_of :level, :greater_than_or_equal_to => 1
-  validates_numericality_of :attack_points, :greater_than_or_equal_to => 0
-  validates_numericality_of :defense_points, :greater_than_or_equal_to => 0
 end
 
 
@@ -45,7 +45,7 @@ class Effect
   has_and_belongs_to_many :monster_card
 
   validates_presence_of :name
-  validates_uniqueness_of :name, :on => :create, :message => "must be unique"
+  validates_uniqueness_of :name
   
   key :name
 end
@@ -59,7 +59,7 @@ class MonsterType
   has_many :monster_card
 
   validates_presence_of :name
-  validates_uniqueness_of :name, :on => :create, :message => "must be unique"
+  validates_uniqueness_of :name
   
   key :name
 end
