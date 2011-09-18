@@ -17,9 +17,13 @@ class Card
   validates_presence_of :number
   validates_presence_of :name
   validates_presence_of :description
+  
+  validates_uniqueness_of :number, :on => :create, :message => "must be unique"
 
   validates_numericality_of :number, :greater_than_or_equal_to => 0
 
+  key  :number # only unique field for a card
+  slug :number # ensure url-friendly numbering--this is the only unique field
 end
 
 # Spell and trap card models
@@ -53,6 +57,8 @@ end
 
 # Monster attribute
 class Attribute
+  include Mongoid::Document
+  
   field :name, :type => String
 
   has_many :card
