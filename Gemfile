@@ -8,7 +8,7 @@ gem 'rails', '3.1.0'
 #gem 'sqlite3'
 gem 'mongoid'
 gem 'bson_ext'
-gem 'mongoid-slug', :git => 'git://github.com/hakanensari/mongoid-slug.git'
+gem 'mongoid_slug', :git => 'git://github.com/hakanensari/mongoid-slug.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
