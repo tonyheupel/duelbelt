@@ -1,11 +1,11 @@
-<h1>Listing All Cards</h1>
+<h1>Listing All Monsters</h1>
 
 <table>
   <tr>
-    <th>Type</th>
     <th>Number</th>
     <th>Name</th>
     <th>Description</th>
+	<th>Attribute</th>
     <th>Image Url</th>
     <th>Quantity</th>
     <th>Tokens</th>
@@ -17,12 +17,12 @@
     <th></th>
   </tr>
 
-<% @cards.each do |card| %>
+<% @monsters.each do |card| %>
   <tr>
-    <td><%= card._type %></td>
     <td><%= card.number %></td>
     <td><%= card.name %></td>
     <td><%= card.description %></td>
+    <td><%= card.attribute %></td>
     <td><%= card.image_url %></td>
     <td><%= card.quantity %></td>
     <td><%= card.tokens %></td>
@@ -30,12 +30,12 @@
     <td><%= card.coins %></td>
     <td><%= card.dice %></td>
     <td><%= link_to 'Show', card %></td>
-    <!-- <td><%= link_to 'Edit', edit_card_path(card) %></td>
-    <td><%= link_to 'Destroy', card, confirm: 'Are you sure?', method: :delete %></td> -->
+    <td><%= link_to 'Edit', edit_monster_path(card) %></td>
+    <td><%= link_to 'Destroy', card, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Card', new_card_path %>
+<%= link_to 'New Card', new_monster_path %>

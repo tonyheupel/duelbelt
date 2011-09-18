@@ -1,2 +1,0 @@
-class TrapController < ApplicationController
-end

@@ -1,6 +1,6 @@
 Duelbelt::Application.routes.draw do
   resources :cards
-
+  resources :monsters
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

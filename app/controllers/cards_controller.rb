@@ -2,7 +2,10 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    # @cards = Card.all
+    @cards = Monster.all
+    @cards.concat Trap.all
+    @cards.concat Spell.all
 
     respond_to do |format|
       format.html # index.html.erb

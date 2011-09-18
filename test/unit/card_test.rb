@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CardTest < ActiveSupport::TestCase
+class MonsterTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
@@ -80,22 +80,6 @@ class CardTest < ActiveSupport::TestCase
       saved = c.save
       assert !saved, "Saved a non-Integer for quantity"
       assert c.errors.messages.include?(:quantity), "#{c.class.name} should have an error on quantity since it's a non-Integer: #{c.inspect}\n#{c.errors}"
-    end
-  end
-  
-  [:tokens, :counters, :coins, :dice].each do |field|
-    test "all cards have a #{field} field that is a Boolean" do
-      all_types do |klass|
-        c = klass.new
-        c.name = "name"
-        c.description = 'description'
-        c.number = "#{klass.name}-number"
-        
-        c.send("#{field}=", 'foobar') # send foobar to the field setter
-        saved = c.save 
-        assert !saved, "Saved a non-Boolean for #{field}"
-        assert c.errors.messages.include?(field), "#{c.class.name} should have an error on #{field} since it's a non-Boolean: #{c.inspect}\n#{c.errors.inspect}"
-      end
     end
   end
   

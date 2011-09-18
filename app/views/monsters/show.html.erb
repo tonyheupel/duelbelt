@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @monster.number %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @monster.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @monster.description %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @monster.image_url %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @monster.quantity %>
+</p>
+
+<p>
+  <b>Tokens:</b>
+  <%= @monster.tokens %>
+</p>
+
+<p>
+  <b>Counters:</b>
+  <%= @monster.counters %>
+</p>
+
+<p>
+  <b>Coins:</b>
+  <%= @monster.coins %>
+</p>
+
+<p>
+  <b>Dice:</b>
+  <%= @monster.dice %>
+</p>
+
+
+<%= link_to 'Edit', edit_monster_path(@monster) %> |
+<%= link_to 'Back', monsters_path %>

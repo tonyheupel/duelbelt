@@ -18,10 +18,6 @@ class Card
   [:number, :name, :description].each do |field|
     validates_presence_of field
   end
-  
-  [:tokens, :counters, :coins, :dice].each do |field|
-    validates_acceptance_of field, :allow_nil => false, :accept => true, :accept => false
-  end
     
   validates_uniqueness_of :number
 
