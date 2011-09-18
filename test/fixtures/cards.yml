@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: MyString
+  name: MyString
+  description: MyText
+  image_url: MyString
+  quantity: 1
+  tokens: false
+  counters: false
+  coins: false
+  dice: false
+
+two:
+  number: MyString
+  name: MyString
+  description: MyText
+  image_url: MyString
+  quantity: 1
+  tokens: false
+  counters: false
+  coins: false
+  dice: false

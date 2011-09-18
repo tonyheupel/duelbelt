@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @card.number %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @card.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @card.description %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @card.image_url %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @card.quantity %>
+</p>
+
+<p>
+  <b>Tokens:</b>
+  <%= @card.tokens %>
+</p>
+
+<p>
+  <b>Counters:</b>
+  <%= @card.counters %>
+</p>
+
+<p>
+  <b>Coins:</b>
+  <%= @card.coins %>
+</p>
+
+<p>
+  <b>Dice:</b>
+  <%= @card.dice %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>
