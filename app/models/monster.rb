@@ -1,20 +1,5 @@
 require 'card'
-# Monster models
-
-# Monster attribute
-class Attribute
-  include Mongoid::Document
-  
-  field :name, :type => String
-
-  has_many :card
-
-  validates_presence_of :name
-  validates_uniqueness_of :name, :on => :create, :message => "must be unique"
-  
-  key :name
-end
-
+require 'attribute'
 # Monster card
 class Monster < Card
   field :level, :type => Integer, :default => 3

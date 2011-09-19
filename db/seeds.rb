@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+if Attribute.count == 0
+  %w{ Dark Earth Fire Light Water Wind}.each { |name| Attribute.create(name: name) }
+end
