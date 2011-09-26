@@ -1,0 +1,15 @@
+// junk and whatever
+$bg: #333;
+$fg: #DDD;
+
+body {
+  background: {
+    color: $bg;
+  };
+  color: $fg;
+  font: {
+    size: 13px;
+    family: verdana, arial, helvetica, sans-serif;
+  }
+  line-height: 18px;
+}
