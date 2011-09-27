@@ -4,7 +4,7 @@ class MonsterType
 
   field :name, :type => String
 
-  #has_many :monster_card
+  has_many :monster_card
 
   validates_presence_of :name
   validates_uniqueness_of :name

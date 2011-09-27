@@ -7,8 +7,15 @@ class Monster < Card
 
   belongs_to :attribute
   belongs_to :monster_type  # Normal, Synchro, Fusion, Ritual
-  has_and_belongs_to_many :effect, :inverse_of => nil
-
+  has_and_belongs_to_many :monster_effect
+  [:attribute, :monster_type].each do |field|
+    validates_presence_of field
+  end
+  
+  [:attribute, :monster_type, :monster_effect].each do |field|
+    validates_associated field
+  end
+  
   [:attack_points, :defense_points].each do |field|
     validates_presence_of     field
     validates_numericality_of field, :greater_than_or_equal_to => 0    
