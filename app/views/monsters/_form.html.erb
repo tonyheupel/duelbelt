@@ -11,57 +11,90 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :number %><br />
-    <%= f.text_field :number %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :attribute %><br />
-    <%= f.collection_select :attribute, Attribute.all, :id, :name %> 
-  </div>
-  <div class="field">
-    <%= f.label :image_url %><br />
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br />
-    <%= f.number_field :quantity %>
-  </div>
+	<div id="fields">
+		<div id="standard">
+			<div id="top" class="section">
+				<div class="field">
+			    <%= f.label :name %><br />
+			    <%= f.text_field :name %>
+			  </div>
+			  <div class="field">
+			    <%= f.label :attribute %><br />
+			    <%= f.collection_select :attribute, Attribute.all, :id, :name %> 
+			  </div>
 
-  <div class="field">
-    <%= f.label :attack_points %><br />
-    <%= f.number_field :attack_points %>
-  </div>
-  <div class="field">
-    <%= f.label :defense_points %><br />
-    <%= f.number_field :defense_points %>
-  </div>
+			  <div class="field">
+			    <%= f.label :level %><br />
+			    <%= f.number_field :level %>
+			  </div>
+			</div>
+			
+			<div id="middle" class="section">
+				<div class="field">
+			    <%= f.label :image_url %><br />
+			    <%= f.text_field :image_url %>
+			  </div>
 
-  <div class="field">
-    <%= f.label :tokens %><br />
-    <%= f.check_box :tokens %>
-  </div>
-  <div class="field">
-    <%= f.label :counters %><br />
-    <%= f.check_box :counters %>
-  </div>
-  <div class="field">
-    <%= f.label :coins %><br />
-    <%= f.check_box :coins %>
-  </div>
-  <div class="field">
-    <%= f.label :dice %><br />
-    <%= f.check_box :dice %>
-  </div>
-  <div class="actions">
+				  <div class="field">
+				    <%= f.label :number %><br />
+				    <%= f.text_field :number %>
+				  </div>
+
+			<!-- Type and Effect and "Type" (warrior, etc.) go here too> -->
+				<% if @monster and @monster.monster_effect
+						@effects_selected = @monster.monster_effect.collect
+				end %>
+
+				<div class="field">
+					<%= f.label :monster_effect %><br />
+					<%= select_tag 'monster[monster_effect][]', options_for_select(MonsterEffect.all.map {|item| item.name }), { :multiple => true, :size =>5, :id => "monster_monster_effect" }  %>
+				</div>
+			  <div class="field">
+			    <%= f.label :description %><br />
+			    <%= f.text_area :description, :cols => 40, :rows => 10 %>
+			  </div>
+
+			</div>  
+
+			<div id="bottom" class="section">
+			  <div class="field">
+			    <%= f.label :attack_points %><br />
+			    <%= f.number_field :attack_points %>
+			  </div>
+			  <div class="field">
+			    <%= f.label :defense_points %><br />
+			    <%= f.number_field :defense_points %>
+			  </div>
+			</div>		
+		  
+		<div class="field section">
+		  <%= f.label :quantity %><br />
+	    <%= f.number_field :quantity %>
+	  </div>
+		
+		</div>
+		<div id="extras" class="section">
+			<h3>Extras</h3>
+		  <div class="field">
+		    <%= f.label :tokens %><br />
+		    <%= f.check_box :tokens %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :counters %><br />
+		    <%= f.check_box :counters %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :coins %><br />
+		    <%= f.check_box :coins %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :dice %><br />
+		    <%= f.check_box :dice %>
+		  </div>
+		</div>
+	</div>
+	
+  <div class="actions section">
     <%= f.submit %>
   </div>
 <% end %>

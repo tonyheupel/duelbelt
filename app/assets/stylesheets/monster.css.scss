@@ -1,3 +1,46 @@
 // Place all the styles related to the monster controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.section {
+  clear: both;
+}
+
+#fields {
+
+  #top {
+    .field {
+      float: left;
+      width: 200px;
+      margin: {
+        right: 10px;
+      };
+    }
+  }
+  
+  #bottom {
+    .field {
+      float: left;
+      width: 200px;
+      margin: {
+        right: 10px;
+      };
+    }
+  }
+  
+  #extras {
+    .field {
+      text-align: center;
+      float: left;
+      width: 150px;
+      margin: {
+        right: 10px;
+      }
+    }
+  }
+}
+
+.actions {
+  margin: {
+    top: 60px;
+  };
+}
