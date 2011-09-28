@@ -5,14 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-if Attribute.count == 0
-  %w{ Dark Earth Fire Light Water Wind }.each { |name| Attribute.create(name: name) }
+def create_name_only_items(collection, klass)
+  unless klass.count == collection.length
+    collection.each { |name| klass.create(name: name) }
+  end
 end
 
-if MonsterEffect.count == 0
-  %w{ Flip Continuous Ignition Trigger Quick }.each { |name| MonsterEffect.create(name: name) }
-end
+create_name_only_items(%w{ Dark Earth Fire Light Water Wind }, Attribute)
+create_name_only_items(%w{ Flip Continuous Ignition Trigger Quick }, MonsterEffect)
+create_name_only_items(%w{ Normal Synchro Fusion Ritual }, MonsterType)
+#create_name_only_items(%w{ Normal Continuous Eqiup Field QuickPlay Ritual }, SpellType)
 
-if MonsterType.count == 0
-  %w{ Normal Synchro Fusion Ritual }.each { |name| MonsterType.create(name: name) }
-end
+
