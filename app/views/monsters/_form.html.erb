@@ -20,7 +20,7 @@
 			  </div>
 			  <div class="field">
 			    <%= f.label :attribute %><br />
-			    <%= f.collection_select :attribute, Attribute.all, :id, :name %> 
+			    <%= f.collection_select :attribute, Attribute.all, :id, :name, { :selected => @monster.attribute.id } %> 
 			  </div>
 
 			  <div class="field">
@@ -40,14 +40,15 @@
 				    <%= f.text_field :number %>
 				  </div>
 
-			<!-- Type and Effect and "Type" (warrior, etc.) go here too> -->
-				<% if @monster and @monster.monster_effect
-						@effects_selected = @monster.monster_effect.collect
-				end %>
+				<div class="field">
+					<%= f.label :monster_type %>
+					<%= f.collection_select :monster_type, MonsterType.all, :id, :name, { :selected => @monster.monster_type.id } %>
+				</div>
 
 				<div class="field">
-					<%= f.label :monster_effect %><br />
-					<%= select_tag 'monster[monster_effect][]', options_for_select(MonsterEffect.all.map {|item| item.name }), { :multiple => true, :size =>5, :id => "monster_monster_effect" }  %>
+					<%= f.label :monster_effects %><br />
+					<%= f.collection_select :monster_effect_ids, MonsterEffect.all, :id, :name, 
+						                      {}, { :selected => @monster.monster_effects, :multiple => true } %>
 				</div>
 			  <div class="field">
 			    <%= f.label :description %><br />

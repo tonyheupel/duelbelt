@@ -5,14 +5,14 @@ class Monster < Card
   field :defense_points, :type => Integer, :default => 1000
   field :tuner, :type => Boolean, :default => false
 
-  belongs_to :attribute
-  belongs_to :monster_type  # Normal, Synchro, Fusion, Ritual
-  has_and_belongs_to_many :monster_effect
+  belongs_to :attribute, :inverse_of => nil
+  belongs_to :monster_type, :inverse_of => nil  # Normal, Synchro, Fusion, Ritual
+  has_and_belongs_to_many :monster_effects, :inverse_of => nil
   [:attribute, :monster_type].each do |field|
     validates_presence_of field
   end
   
-  [:attribute, :monster_type, :monster_effect].each do |field|
+  [:attribute, :monster_type, :monster_effects].each do |field|
     validates_associated field
   end
   

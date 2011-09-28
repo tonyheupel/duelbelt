@@ -6,7 +6,11 @@
 }
 
 #fields {
-
+  .field {
+    input[type=number] {
+      width: 75px;
+    }
+  }
   #top {
     .field {
       float: left;
