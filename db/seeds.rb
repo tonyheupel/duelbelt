@@ -14,6 +14,7 @@ end
 create_name_only_items(%w{ Dark Earth Fire Light Water Wind }, Attribute)
 create_name_only_items(%w{ Flip Continuous Ignition Trigger Quick }, MonsterEffect)
 create_name_only_items(%w{ Normal Synchro Fusion Ritual }, MonsterType)
-#create_name_only_items(%w{ Normal Continuous Eqiup Field QuickPlay Ritual }, SpellType)
+create_name_only_items(%w{ Normal Continuous Eqiup Field QuickPlay Ritual }, SpellType)
+create_name_only_items(%w{ Normal Continuous Counter }, TrapType)
 
 
