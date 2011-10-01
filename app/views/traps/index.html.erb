@@ -1,0 +1,42 @@
+<h1>Listing All Traps</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Image</th>    
+    <th>Quantity</th>
+		<th>Rarity</th>
+    <th>Tokens</th>
+    <th>Counters</th>
+    <th>Coins</th>
+    <th>Dice</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @traps.each do |card| %>
+  <tr>
+    <td><%= link_to card.number, card %></td>
+    <td><%= link_to card.name, card %></td>
+		<td><%= card.trap_type.name %></td>
+    <td><%= image_tag(card_image_url(card), {:alt => card.name}) %></td>
+
+    <td><%= card.quantity %></td>
+    <td><%= card.rarity ? card.rarity.name : nil %></td>
+    <td><%= card.tokens %></td>
+    <td><%= card.counters %></td>
+    <td><%= card.coins %></td>
+    <td><%= card.dice %></td>
+    <td><%= link_to 'Show', card %></td>
+    <td><%= link_to 'Edit', edit_monster_path(card) %></td>
+    <td><%= link_to 'Destroy', card, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Trap', new_trap_path %>

@@ -1,0 +1,64 @@
+<%= form_for(@trap) do |f| %>
+  <% if @trap.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trap.errors.count, "error") %> prohibited this trap from being saved:</h2>
+
+      <ul>
+      <% @trap.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<div id="fields">
+		<div id="standard">
+			<div id="top" class="section">
+				<div class="field">
+			    <%= f.label :name %><br />
+			    <%= f.text_field :name %>
+			  </div>
+			
+				<div class="field">
+					<%= f.label :trap_type %><br /> 
+					<%= f.collection_select :trap_type, TrapType.all, :id, :name, @trap.trap_type ? { :selected => @trap.trap_type.id } : {} %>
+				</div>
+			</div>
+			
+			<div id="middle" class="section">
+				<div class="field">
+			    <%= @trap.number ? image_tag(card_image_url(@trap), { :alt => @trap.name }) : nil %>
+			  </div>
+			  
+				  <div class="field">
+				    <%= f.label :number %><br />
+				    <%= f.text_field :number %>
+				  </div>
+				</div>
+
+			  <div class="field">
+			    <%= f.label :description %><br />
+			    <%= f.text_area :description, :cols => 40, :rows => 10 %>
+			  </div>
+			</div>  
+
+			<div id="bottom" class="section">
+			  <div class="field">
+					<%= f.label :rarity %><br />
+					<%= f.collection_select :rarity, Rarity.all, :id, :name, @trap.rarity ? { :selected => @trap.rarity.id } : {}%>
+				</div>
+			</div>		
+		  
+		<div class="field section">
+		  <%= f.label :quantity %><br />
+	    <%= f.number_field :quantity %>
+	  </div>
+		
+	</div>
+	
+	<%= render :partial => 'shared/extras', :locals => {:f => f} %>
+	
+  <div class="actions section">
+    <%= f.submit %>
+  </div>
+<% end %>
