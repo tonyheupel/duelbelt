@@ -8,6 +8,7 @@ class Card
   field :description, :type => String
   field :image_url,   :type => String
   field :quantity,    :type => Integer, :default => 1
+  field :password,    :type => String  # the number on the VERY bottom-left corner of the card (optional)
   
   # additional items of interest that a card can have "something to do with"
   field :tokens,    :type => Boolean, :default => false
