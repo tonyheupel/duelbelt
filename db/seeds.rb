@@ -12,26 +12,26 @@ def create_name_only_items(collection, klass)
 end
 
 create_name_only_items(%w{ Dark Earth Fire Light Water Wind }, Attribute)
-create_name_only_items(%w{ Flip Continuous Ignition Trigger Quick }, MonsterEffect)
+#create_name_only_items(%w{ Flip Continuous Ignition Trigger Quick }, MonsterEffect)
 create_name_only_items(%w{ Normal Synchro Fusion Ritual }, MonsterType)
 create_name_only_items(%w{ Normal Continuous Eqiup Field QuickPlay Ritual }, SpellType)
 create_name_only_items(%w{ Normal Continuous Counter }, TrapType)
-# create_name_only_items(%w{
-#                         Warrior
-#                         Winged Beast
-#                         Dragon
-#                         Fairy
-#                         Fiend
-#                         Machine
-#                         Devine
-#                         Gemini
-#                         Spellcaster
-#                         Fish
-#                         Serpent
-#                         Rock
-#                         Reptile
-#                         Pyro
-#                         Insect
-#                         Plant
-#                       }, MonsterClass)  # => Haven't decided on the name yet!!!!!
+create_name_only_items(%w{
+                        Warrior
+                        Winged Beast
+                        Dragon
+                        Fairy
+                        Fiend
+                        Machine
+                        Devine
+                        Gemini
+                        Spellcaster
+                        Fish
+                        Serpent
+                        Rock
+                        Reptile
+                        Pyro
+                        Insect
+                        Plant
+                      }, MonsterKind)
 

@@ -31,34 +31,36 @@
 			
 			<div id="middle" class="section">
 				<div class="field">
-			    <%= f.label :image_url %><br />
-			    <%= f.text_field :image_url %>
+			    <%= @monster.number ? image_tag(card_image_url(@monster), { :alt => @monster.name }) : nil %>
 			  </div>
-
+			  
 				  <div class="field">
 				    <%= f.label :number %><br />
 				    <%= f.text_field :number %>
 				  </div>
 
 				<div class="field">
-					<%= f.label :monster_type %>
+					<%= f.label :monster_type %>: 
 					<%= f.collection_select :monster_type, MonsterType.all, :id, :name, @monster.monster_type ? { :selected => @monster.monster_type.id } : {} %>
 				</div>
 
 				<div class="field">
-					<%= f.label :monster_effects %><br />
-					<% default = MonsterEffect.new
-						 default.name = 'None'
-						 default.id = nil
-					%>
-					<%= f.collection_select :monster_effect_ids, MonsterEffect.all << default, :id, :name, {}, 
-					{ :selected => @monster.monster_effects, :multiple => true } %>
+					<%= f.label :monster_kind %>: 
+					<%= f.collection_select :monster_kind, MonsterKind.all, :id, :name, @monster.monster_kind ? { :selected => @monster.monster_kind.id } : {} %>
 				</div>
+
+				<div class="field">
+					<%= f.label :is_effect %>: 
+		      <%= f.check_box :is_effect %>
+		    </div>
+		    <div class="field">
+					<%= f.label :is_tuner %>: 
+		      <%= f.check_box :is_tuner %>
+		    </div>
 			  <div class="field">
 			    <%= f.label :description %><br />
 			    <%= f.text_area :description, :cols => 40, :rows => 10 %>
 			  </div>
-
 			</div>  
 
 			<div id="bottom" class="section">

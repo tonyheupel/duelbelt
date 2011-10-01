@@ -16,8 +16,7 @@
 </p>
 
 <p>
-  <b>Image url:</b>
-  <%= @monster.image_url %>
+  <%= image_tag(card_image_url(@monster), {:alt => @monster.name}) %>
 </p>
 
 <p>

@@ -1,6 +1,10 @@
 Duelbelt::Application.routes.draw do
-  resources :cards
+
   resources :monsters
+  resources :spells
+  resources :traps
+
+  root :to => 'cards#index'  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

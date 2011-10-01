@@ -1,18 +1,20 @@
 # Monster card
 class Monster < Card
-  field :level, :type => Integer, :default => 3
-  field :attack_points, :type => Integer, :default => 1000
-  field :defense_points, :type => Integer, :default => 1000
-  field :tuner, :type => Boolean, :default => false
+  field :level,              :type => Integer, :default => 3
+  field :attack_points,      :type => Integer, :default => 1000
+  field :defense_points,     :type => Integer, :default => 1000
+  field :is_tuner,           :type => Boolean, :default => false
+  field :is_effect,          :type => Boolean, :default => false
 
-  belongs_to :attribute, :inverse_of => nil
-  belongs_to :monster_type, :inverse_of => nil  # Normal, Synchro, Fusion, Ritual
-  has_and_belongs_to_many :monster_effects, :inverse_of => nil
-  [:attribute, :monster_type].each do |field|
+  belongs_to :attribute,      :inverse_of => nil
+  belongs_to :monster_type,   :inverse_of => nil  # Normal, Synchro, Fusion, Ritual
+  belongs_to :monster_kind,   :inverse_of => nil  # Warrior, Spellcaster, Fairy, etc.
+  
+  [:attribute, :monster_type, :monster_kind].each do |field|
     validates_presence_of field
   end
   
-  [:attribute, :monster_type, :monster_effects].each do |field|
+  [:attribute, :monster_type, :monster_kind].each do |field|
     validates_associated field
   end
   
@@ -23,6 +25,13 @@ class Monster < Card
   
   validates_presence_of     :level
   validates_numericality_of :level, :greater_than_or_equal_to => 1
+  
+  def effect?
+    is_effect
+  end
+  
+  def tuner?
+    is_tuner
+  end
+  
 end
-
-

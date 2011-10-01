@@ -1,5 +1,5 @@
-# Effects for Monster cards
-class MonsterEffect
+# Monster card class, such as Gemini, Spellcaster, etc.
+class MonsterKind
   include Mongoid::Document
 
   field :name, :type => String

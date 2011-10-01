@@ -41,12 +41,9 @@ class MonstersController < ApplicationController
   # POST /monsters
   # POST /monsters.json
   def create
-    
-    #effects = params[:monster].delete(:monster_effects)
     @monster = Monster.new(params[:monster])
     
-    #@monster.monster_effects.concat(effects.map { |effect| @monster.monster_effects.build({ name: effect }) })
-    #raise @monster.inspect
+
     respond_to do |format|
       if @monster.save
         format.html { redirect_to @monster, notice: 'Monster was successfully created.' }

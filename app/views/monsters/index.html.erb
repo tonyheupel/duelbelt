@@ -1,3 +1,8 @@
+<style type="text/css">
+  td img { 
+    width: 50px;
+  }
+</style>
 <h1>Listing All Monsters</h1>
 
 <table>
@@ -5,8 +10,13 @@
     <th>Number</th>
     <th>Name</th>
     <th>Description</th>
-	<th>Attribute</th>
-    <th>Image Url</th>
+	  <th>Attribute</th>
+    <th>Image</th>
+    
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    
     <th>Quantity</th>
     <th>Tokens</th>
     <th>Counters</th>
@@ -23,7 +33,12 @@
     <td><%= card.name %></td>
     <td><%= card.description %></td>
     <td><%= card.attribute.name %></td>
-    <td><%= card.image_url %></td>
+    <td><%= image_tag(card_image_url(card), {:alt => card.name}) %></td>
+
+    <td><%= card.monster_kind ? card.monster_kind.name : nil %></td>
+    <td><%= card.effect? ? '/Effect' : nil %></td>
+    <td><%= card.tuner? ? '/Tuner' : nil %></td>
+
     <td><%= card.quantity %></td>
     <td><%= card.tokens %></td>
     <td><%= card.counters %></td>
