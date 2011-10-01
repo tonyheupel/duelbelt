@@ -72,6 +72,10 @@
 			    <%= f.label :defense_points %><br />
 			    <%= f.number_field :defense_points %>
 			  </div>
+			  <div class="field">
+					<%= f.label :rarity %><br />
+					<%= f.collection_select :rarity, Rarity.all, :id, :name, @monster.rarity ? { :selected => @monster.rarity.id } : {}%>
+				</div>
 			</div>		
 		  
 		<div class="field section">
