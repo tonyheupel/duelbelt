@@ -1,22 +1,12 @@
-<style type="text/css">
-  td img { 
-    width: 50px;
-  }
-</style>
 <h1>Listing All Monsters</h1>
 
 <table>
   <tr>
     <th>Number</th>
     <th>Name</th>
-    <th>Description</th>
 	  <th>Attribute</th>
-    <th>Image</th>
-    
+    <th>Image</th>    
     <th>Type</th>
-    <th></th>
-    <th></th>
-    
     <th>Quantity</th>
     <th>Tokens</th>
     <th>Counters</th>
@@ -29,16 +19,12 @@
 
 <% @monsters.each do |card| %>
   <tr>
-    <td><%= card.number %></td>
-    <td><%= card.name %></td>
-    <td><%= card.description %></td>
+    <td><%= link_to card.number, card %></td>
+    <td><%= link_to card.name, card %></td>
     <td><%= card.attribute.name %></td>
     <td><%= image_tag(card_image_url(card), {:alt => card.name}) %></td>
 
-    <td><%= card.monster_kind ? card.monster_kind.name : nil %></td>
-    <td><%= card.effect? ? '/Effect' : nil %></td>
-    <td><%= card.tuner? ? '/Tuner' : nil %></td>
-
+    <td><%= "#{card.monster_kind ? card.monster_kind.name : nil}#{card.effect? ? ' / Effect' : nil}#{card.tuner? ? ' / Tuner' : nil}" %></td>
     <td><%= card.quantity %></td>
     <td><%= card.tokens %></td>
     <td><%= card.counters %></td>
@@ -53,4 +39,4 @@
 
 <br />
 
-<%= link_to 'New Card', new_monster_path %>
+<%= link_to 'New Monster', new_monster_path %>

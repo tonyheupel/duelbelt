@@ -19,3 +19,19 @@ body {
     right: auto;
   }
 }
+
+td {
+  img { 
+    width: 50px;
+  }
+}
+
+a {
+  color: #eee;
+  &:visited {
+    color: #aaa; }
+  &:hover {
+    color: #fff;
+    background-color: #000; 
+  } 
+}

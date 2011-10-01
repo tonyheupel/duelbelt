@@ -3,12 +3,8 @@
 <table>
   <tr>
     <th>Type</th>
-    <th></th>
-    <th></th>
-    <th></th>
     <th>Number</th>
     <th>Name</th>
-    <th>Description</th>
     <th>Image</th>
     <th>Quantity</th>
     <th></th>
@@ -19,13 +15,9 @@
 <% @cards.each do |card| %>
   <tr>
     <td><%= card._type %></td>
-    <td><%= card.kind %></td>
-    <td><%= card.effect? ? ' / Effect' : nil %></td>
-    <td><%= card.tuner? ? ' / Tuner' : nil %></td>
-    <td><%= card.number %></td>
-    <td><%= card.name %></td>
-    <td><%= card.description %></td>
-    <td><%= image_tag(card_image_url(@monster), {:alt => @monster.name}) %></td>
+    <td><%= link_to card.number, card %></td>
+    <td><%= link_to card.name, card %></td>
+    <td><%= image_tag(card_image_url(card), {:alt => card.name}) %></td>
     <td><%= card.quantity %></td>
     <td><%= link_to 'Show', card %></td>
   </tr>
