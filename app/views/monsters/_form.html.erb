@@ -1,3 +1,7 @@
+<div id="image">
+  <%= @monster.number ? image_tag(card_image_url(@monster), { :alt => @monster.name }) : nil %>
+</div>
+
 <%= form_for(@monster) do |f| %>
   <% if @monster.errors.any? %>
     <div id="error_explanation">
@@ -11,6 +15,7 @@
     </div>
   <% end %>
 
+<div id="card">
 	<div id="fields">
 		<div id="standard">
 			<div id="top" class="section">
@@ -30,10 +35,6 @@
 			</div>
 			
 			<div id="middle" class="section">
-				<div class="field">
-			    <%= @monster.number ? image_tag(card_image_url(@monster), { :alt => @monster.name }) : nil %>
-			  </div>
-			  
 				  <div class="field">
 				    <%= f.label :number %><br />
 				    <%= f.text_field :number %>
@@ -59,7 +60,7 @@
 		    </div>
 			  <div class="field">
 			    <%= f.label :description %><br />
-			    <%= f.text_area :description, :cols => 40, :rows => 10 %>
+			    <%= f.text_area :description, :cols => 40, :rows => 10, :class => 'description' %>
 			  </div>
 			</div>  
 
@@ -84,28 +85,11 @@
 	  </div>
 		
 		</div>
-		<div id="extras" class="section">
-			<h3>Extras</h3>
-		  <div class="field">
-		    <%= f.label :tokens %><br />
-		    <%= f.check_box :tokens %>
-		  </div>
-		  <div class="field">
-		    <%= f.label :counters %><br />
-		    <%= f.check_box :counters %>
-		  </div>
-		  <div class="field">
-		    <%= f.label :coins %><br />
-		    <%= f.check_box :coins %>
-		  </div>
-		  <div class="field">
-		    <%= f.label :dice %><br />
-		    <%= f.check_box :dice %>
-		  </div>
-		</div>
+		<%= render :partial => 'shared/extras', :locals => {:f => f} %>
 	</div>
 	
   <div class="actions section">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

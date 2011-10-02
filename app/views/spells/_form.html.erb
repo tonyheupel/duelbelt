@@ -1,3 +1,7 @@
+<div id="image">
+  <%= @spell.number ? image_tag(card_image_url(@spell), { :alt => @spell.name }) : nil %>
+</div>
+
 <%= form_for(@spell) do |f| %>
   <% if @spell.errors.any? %>
     <div id="error_explanation">
@@ -11,6 +15,7 @@
     </div>
   <% end %>
 
+<div id="card">
 	<div id="fields">
 		<div id="standard">
 			<div id="top" class="section">
@@ -26,10 +31,6 @@
 			</div>
 			
 			<div id="middle" class="section">
-				<div class="field">
-			    <%= @spell.number ? image_tag(card_image_url(@spell), { :alt => @spell.name }) : nil %>
-			  </div>
-			  
 				  <div class="field">
 				    <%= f.label :number %><br />
 				    <%= f.text_field :number %>
@@ -38,7 +39,7 @@
 
 			  <div class="field">
 			    <%= f.label :description %><br />
-			    <%= f.text_area :description, :cols => 40, :rows => 10 %>
+			    <%= f.text_area :description, :cols => 40, :rows => 10, :class => 'description' %>
 			  </div>
 			</div>  
 
@@ -79,4 +80,5 @@
   <div class="actions section">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

@@ -41,9 +41,37 @@ a {
   .field {
     text-align: center;
     float: left;
-    width: 150px;
+    width: 100px;
     margin: {
       right: 10px;
     }
+  }
+}
+
+div#image {
+  float: right;
+  width: 300px;
+}
+
+#card {
+  label {
+    font-weight: bold;
+  }
+  color: #000;
+  width: 580px;
+  padding: 10px;
+  float: left;
+  border: {
+    color: #000;
+    style: solid;
+    width: 5px;
+  }
+  
+  .description {
+    border: {
+      color: #cd853f;
+      style: solid;
+      width: 3px;
+    };
   }
 }
