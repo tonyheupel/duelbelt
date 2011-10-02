@@ -38,9 +38,10 @@
   };
 }
 
-.edit_monster 
+.edit_monster, .new_monster { 
  #card {
-  background: {
-    color: #f4a460;
-  }
+   background: {
+     color: #f4a460;
+   }
+ }
 }
