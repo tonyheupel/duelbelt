@@ -6,9 +6,8 @@
     <th>Number</th>
     <th>Name</th>
     <th>Image</th>
+    <th>Rarity</th>
     <th>Quantity</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -18,6 +17,7 @@
     <td><%= link_to card.number, card %></td>
     <td><%= link_to card.name, card %></td>
     <td><%= image_tag(card_image_url(card), {:alt => card.name}) %></td>
+		<td><%= card.rarity ? card.rarity.name : nil %></td>
     <td><%= card.quantity %></td>
     <td><%= link_to 'Show', card %></td>
   </tr>

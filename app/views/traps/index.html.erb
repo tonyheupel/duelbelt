@@ -1,12 +1,11 @@
-<h1>Listing All Monsters</h1>
+<h1>Listing All Traps</h1>
 
 <table>
   <tr>
     <th>Number</th>
     <th>Name</th>
-	  <th>Attribute</th>
-    <th>Image</th>    
     <th>Type</th>
+    <th>Image</th>    
     <th>Quantity</th>
 		<th>Rarity</th>
     <th>Tokens</th>
@@ -18,14 +17,13 @@
     <th></th>
   </tr>
 
-<% @monsters.each do |card| %>
+<% @traps.each do |card| %>
   <tr>
     <td><%= link_to card.number, card %></td>
     <td><%= link_to card.name, card %></td>
-    <td><%= card.attribute.name %></td>
+		<td><%= card.trap_type.name %></td>
     <td><%= image_tag(card_image_url(card), {:alt => card.name}) %></td>
 
-    <td><%= "#{card.monster_kind ? card.monster_kind.name : nil}#{card.effect? ? ' / Effect' : nil}#{card.tuner? ? ' / Tuner' : nil}" %></td>
     <td><%= card.quantity %></td>
     <td><%= card.rarity ? card.rarity.name : nil %></td>
     <td><%= card.tokens %></td>
@@ -41,4 +39,4 @@
 
 <br />
 
-<%= link_to 'New Monster', new_monster_path %>
+<%= link_to 'New Trap', new_trap_path %>

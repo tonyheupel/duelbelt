@@ -1,0 +1,84 @@
+<div id="image">
+  <%= @spell.number ? image_tag(card_image_url(@spell), { :alt => @spell.name }) : nil %>
+</div>
+
+<%= form_for(@spell) do |f| %>
+  <% if @spell.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spell.errors.count, "error") %> prohibited this spell from being saved:</h2>
+
+      <ul>
+      <% @spell.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="card">
+	<div id="fields">
+		<div id="standard">
+			<div id="top" class="section">
+				<div class="field">
+			    <%= f.label :name %><br />
+			    <%= f.text_field :name %>
+			  </div>
+			
+				<div class="field">
+					<%= f.label :spell_type %><br /> 
+					<%= f.collection_select :spell_type, SpellType.all, :id, :name, @spell.spell_type ? { :selected => @spell.spell_type.id } : {} %>
+				</div>
+			</div>
+			
+			<div id="middle" class="section">
+				  <div class="field">
+				    <%= f.label :number %><br />
+				    <%= f.text_field :number %>
+				  </div>
+				</div>
+
+			  <div class="field">
+			    <%= f.label :description %><br />
+			    <%= f.text_area :description, :cols => 40, :rows => 10, :class => 'description' %>
+			  </div>
+			</div>  
+
+			<div id="bottom" class="section">
+			  <div class="field">
+					<%= f.label :rarity %><br />
+					<%= f.collection_select :rarity, Rarity.all, :id, :name, @spell.rarity ? { :selected => @spell.rarity.id } : {}%>
+				</div>
+			</div>		
+		  
+		<div class="field section">
+		  <%= f.label :quantity %><br />
+	    <%= f.number_field :quantity %>
+	  </div>
+		
+		</div>
+		<div id="extras" class="section">
+			<h3>Extras</h3>
+		  <div class="field">
+		    <%= f.label :tokens %><br />
+		    <%= f.check_box :tokens %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :counters %><br />
+		    <%= f.check_box :counters %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :coins %><br />
+		    <%= f.check_box :coins %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :dice %><br />
+		    <%= f.check_box :dice %>
+		  </div>
+		</div>
+	</div>
+	
+  <div class="actions section">
+    <%= f.submit %>
+  </div>
+</div>
+<% end %>

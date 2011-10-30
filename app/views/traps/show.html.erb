@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @trap.number %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @trap.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @trap.trap_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @trap.description %>
+</p>
+
+<p>
+  <%= image_tag(card_image_url(@trap), {:alt => @trap.name}) %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @trap.quantity %>
+</p>
+
+<p>
+  <b>Tokens:</b>
+  <%= @trap.tokens %>
+</p>
+
+<p>
+  <b>Counters:</b>
+  <%= @trap.counters %>
+</p>
+
+<p>
+  <b>Coins:</b>
+  <%= @trap.coins %>
+</p>
+
+<p>
+  <b>Dice:</b>
+  <%= @trap.dice %>
+</p>
+
+
+<%= link_to 'Edit', edit_trap_path(@trap) %> |
+<%= link_to 'Back', traps_path %>

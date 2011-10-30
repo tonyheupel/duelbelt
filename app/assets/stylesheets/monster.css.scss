@@ -30,21 +30,18 @@
       };
     }
   }
-  
-  #extras {
-    .field {
-      text-align: center;
-      float: left;
-      width: 150px;
-      margin: {
-        right: 10px;
-      }
-    }
-  }
 }
 
 .actions {
   margin: {
     top: 60px;
   };
+}
+
+.edit_monster, .new_monster { 
+ #card {
+   background: {
+     color: #f4a460;
+   }
+ }
 }

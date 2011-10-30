@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @spell.number %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @spell.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @spell.spell_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @spell.description %>
+</p>
+
+<p>
+  <%= image_tag(card_image_url(@spell), {:alt => @spell.name}) %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @spell.quantity %>
+</p>
+
+<p>
+  <b>Tokens:</b>
+  <%= @spell.tokens %>
+</p>
+
+<p>
+  <b>Counters:</b>
+  <%= @spell.counters %>
+</p>
+
+<p>
+  <b>Coins:</b>
+  <%= @spell.coins %>
+</p>
+
+<p>
+  <b>Dice:</b>
+  <%= @spell.dice %>
+</p>
+
+
+<%= link_to 'Edit', edit_spell_path(@spell) %> |
+<%= link_to 'Back', spells_path %>
