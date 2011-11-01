@@ -13,50 +13,27 @@
     #fields
       #standard
         #top.section
-          .field
-            = f.label :name
-            %br/
-            = f.text_field :name
-          .field
-            = f.label :attribute
-            %br/
-            = f.collection_select :attribute, Attribute.all, :id, :name, @monster.attribute ? { :selected => @monster.attribute.id } : {}
-          .field
-            = f.label :level
-            %br/
-            = f.number_field :level
+          .field= f.text_field :name, :placeholder => 'Name'
+          .field= f.collection_select :attribute, Attribute.all, :id, :name, @monster.attribute ? { :selected => @monster.attribute.id } : {}
+          .field= f.number_field :level, :placeholder => 'Level'
         #middle.section
+          .field= f.text_field :number, :placeholder => 'Card Number'
+          .field= f.collection_select :monster_type, MonsterType.all, :id, :name, @monster.monster_type ? { :selected => @monster.monster_type.id } : {}
+          .field= f.collection_select :monster_kind, MonsterKind.all, :id, :name, @monster.monster_kind ? { :selected => @monster.monster_kind.id } : {}
+          .field 
+            = f.label :effect
+            \: #{f.check_box :is_effect}
           .field
-            = f.label :number
-            %br/
-            = f.text_field :number
-          .field
-            = f.label :monster_type
-            \:
-            \#{f.collection_select :monster_type, MonsterType.all, :id, :name, @monster.monster_type ? { :selected => @monster.monster_type.id } : {}}
-          .field
-            = f.label :monster_kind
-            \:
-            \#{f.collection_select :monster_kind, MonsterKind.all, :id, :name, @monster.monster_kind ? { :selected => @monster.monster_kind.id } : {}}
-          .field
-            = f.label :is_effect
-            \:
-            \#{f.check_box :is_effect}
-          .field
-            = f.label :is_tuner
-            \:
-            \#{f.check_box :is_tuner}
-          .field
-            = f.label :description
-            %br/
-            = f.text_area :description, :cols => 40, :rows => 10, :class => 'description'
+            = f.label :tuner
+            \: #{f.check_box :is_tuner}
+          .field= f.text_area :description, :cols => 40, :rows => 10, :class => 'description', :placeholder => 'Description'
         #bottom.section
           .field
-            = f.label :attack_points
+            = f.label :attack
             %br/
             = f.number_field :attack_points
           .field
-            = f.label :defense_points
+            = f.label :defense
             %br/
             = f.number_field :defense_points
           .field
