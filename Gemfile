@@ -19,7 +19,7 @@ gem 'mongoid_slug', :git => 'git://github.com/hakanensari/mongoid-slug.git'
 #end
 
 gem 'jquery-rails'
-
+gem 'haml-rails'
 # Use unicorn as the web server
 # gem 'unicorn'
 

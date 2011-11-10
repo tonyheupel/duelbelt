@@ -58,8 +58,13 @@ div#image {
   label {
     font-weight: bold;
   }
+  input, select, textarea {
+    font: {
+      size: 125%;
+    }
+  }
   color: #000;
-  width: 580px;
+  width: 620px;
   padding: 10px;
   float: left;
   border: {

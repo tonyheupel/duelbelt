@@ -14,13 +14,16 @@
   #top {
     .field {
       float: left;
-      width: 200px;
+     // width: 200px;
       margin: {
         right: 10px;
       };
     }
-  }
-  
+    #monster_name {
+      width: 400px;
+      padding-right: 10px;
+    }
+  }  
   #bottom {
     .field {
       float: left;
