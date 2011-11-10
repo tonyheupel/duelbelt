@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .section {
-  clear: both;
+	clear: both;
 }
 
 #fields {
@@ -36,15 +36,15 @@
 }
 
 .actions {
-  margin: {
-    top: 60px;
-  };
+	margin: {
+		top: 60px;
+	};
 }
 
 .edit_monster, .new_monster { 
  #card {
-   background: {
-     color: #f4a460;
-   }
+	 background: {
+		 color: #f4a460;
+	 }
  }
 }
